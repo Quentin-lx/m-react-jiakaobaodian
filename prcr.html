@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+        let arr1 = [1,[2,[3,[4,[5,6]]],5],[6],[7,8]]
+        function getArr(arr, sum = 1) {
+            var newArr = []
+            var hasChild = false;
+            for (let i = 0; i < arr.length; i++) {
+                if (Array.isArray(arr[i])) {
+                    for (var j = 0; j < arr[i].length; j++) {
+                        newArr.push(arr[i][j]);
+                    }
+                    hasChild = true
+                }
+            }
+            if (hasChild) {
+                sum++;
+                return getArr(newArr, sum)
+            } else {
+                return sum;
+            }
+        }
+        console.log(getArr(arr1))
+    </script>
+
+</body>
+
+</html>
